@@ -1,31 +1,28 @@
-// App.js
-import React, {useEffect} from 'react';
+// In App.js in a new project
+
+import * as React from 'react';
+import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Screen1 from './screens/Screen1';
-import Screen2 from './screens/Screen2';
-import Screen3 from './screens/Screen3';
-import Screen4 from './screens/Screen4';
-import SplashScreen from 'react-native-splash-screen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const Tab = createBottomTabNavigator();
-
-const App = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
-
+function HomeScreen() {
   return (
-    //바닥
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Screen1} />
-        <Tab.Screen name="Screen2" component={Screen2} />
-        <Tab.Screen name="Screen3" component={Screen3} />
-        <Tab.Screen name="Screen4" component={Screen4} />
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default App;
