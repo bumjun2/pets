@@ -1,23 +1,31 @@
 // App.js
 import React from 'react';
-import Img from './src/Img';
-import {StyleSheet, View, Text} from 'react-native';
+import Home from './src/Home';
+import Pets from './src/Pets';
+import Shop from './src/Shop';
+import MyPage from './src/MyPage';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 function App() {
   return (
-    <View style={styles.contiune}>
-      <Text>아침에 사과</Text>
-      <Img />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen
+          name="ㅅ;빌"
+          component={Home}
+          options={{
+            tabBarBadge: 3,
+          }}></Tab.Screen>
+        <Tab.Screen name="펫스" component={Pets}></Tab.Screen>
+        <Tab.Screen name="상점" component={Shop}></Tab.Screen>
+        <Tab.Screen name="내 정보" component={MyPage}></Tab.Screen>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  contiune: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default App;
