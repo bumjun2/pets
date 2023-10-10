@@ -2,7 +2,11 @@ import React from 'react';
 import {Text, View} from 'react-native';
 
 const Home = () => {
-  return <Text>Home</Text>;
+  return (
+    <View style={{backgroundColor: 'pink'}}>
+      <Text>Home</Text>
+    </View>
+  );
 };
 
 export default Home;

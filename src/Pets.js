@@ -1,8 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, TextInput} from 'react-native';
 
 const Pets = () => {
-  return <Text>ss</Text>;
+  return <Text>펫스</Text>;
 };
 
 export default Pets;
