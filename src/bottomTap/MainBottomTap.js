@@ -1,14 +1,12 @@
 import React from 'react';
 
-import Home from './bottomCompont/Home';
-import Pets from './bottomCompont/Pets';
 import Shop from './bottomCompont/Shop';
 import MyPage from './bottomCompont/MyPage';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import StackHome from '../stackScreen/StackHome';
-import StackPets from '../stackScreen/StackPets';
+import StackPets from '../stackScreen/stackPets/StackPets';
 
 const Tab = createMaterialBottomTabNavigator();
 const MainBottomTap = () => {

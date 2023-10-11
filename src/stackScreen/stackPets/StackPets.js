@@ -1,6 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Pets from '../bottomTap/bottomCompont/Pets';
+import Pets from '../../bottomTap/bottomCompont/Pets';
+import PetsImg from './PetsImg';
 
 const Stack = createStackNavigator();
 

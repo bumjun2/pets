@@ -1,22 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
+import PetsImg from '../../stackScreen/stackPets/PetsImg';
 
 const Pets = () => {
   return (
-    <View style={styles.container}>
-      <TextInput placeholde="아무거나 입력하세요..." style={styles.input} />
+    <View>
+      <View style={styles.container}>
+        <TextInput placeholder="🐶 이름을 입력하세요!!" style={styles.input} />
+      </View>
+      <View>
+        <PetsImg />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    margin: 50,
+    marginBottom: 0,
+    marginTop: 70,
   },
   input: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderColor: 'pink',
+    borderWidth: 3,
   },
 });
 
