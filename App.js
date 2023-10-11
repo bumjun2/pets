@@ -2,11 +2,10 @@
 import React, {useEffect} from 'react';
 
 import MainBottomTap from './src/bottomTap/MainBottomTap';
-
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 
-function App() {
+const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
@@ -15,6 +14,6 @@ function App() {
       <MainBottomTap />
     </NavigationContainer>
   );
-}
+};
 
 export default App;

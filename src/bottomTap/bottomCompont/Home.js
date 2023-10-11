@@ -1,8 +1,9 @@
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
 
 const Home = () => {
-  return <Text>Home</Text>;
+  return;
 };
 
 export default Home;

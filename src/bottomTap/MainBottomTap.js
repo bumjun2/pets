@@ -1,35 +1,34 @@
 import React from 'react';
-import Home from '../bottomTap/bottomCompont/Home';
-import Pets from '../bottomTap/bottomCompont/Pets';
-import Shop from '../bottomTap/bottomCompont/Shop';
-import MyPage from '../bottomTap/bottomCompont/MyPage';
+
+import Home from './bottomCompont/Home';
+import Pets from './bottomCompont/Pets';
+import Shop from './bottomCompont/Shop';
+import MyPage from './bottomCompont/MyPage';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import StackHome from '../stackScreen/StackHome';
+import StackPets from '../stackScreen/StackPets';
 
 const Tab = createMaterialBottomTabNavigator();
 const MainBottomTap = () => {
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      tabBarOptions={{
-        showIcon: true,
-      }}>
+    <Tab.Navigator initialRouteName="Home" activeColor="pink">
       <Tab.Screen
-        name="홈"
-        component={Home}
+        name="bottomHome"
+        component={StackHome}
         options={{
-          tabBarLabel: '홈',
-          tabBarIcon: ({color}) => <Icon name="home" size={32} color={color} />,
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color}) => <Icon name="home" size={24} color={color} />,
         }}
       />
       <Tab.Screen
         name="펫스"
-        component={Pets}
+        component={StackPets}
         options={{
-          tabBarLabel: '홈',
+          tabBarLabel: 'Pets',
           tabBarIcon: ({color}) => (
-            <Icon name="search" size={32} color={color} />
+            <Icon name="search" size={24} color={color} />
           ),
         }}
       />
@@ -37,9 +36,9 @@ const MainBottomTap = () => {
         name="상점"
         component={Shop}
         options={{
-          tabBarLabel: '홈',
+          tabBarLabel: 'Shop',
           tabBarIcon: ({color}) => (
-            <Icon name="shopping-basket" size={32} color={color} />
+            <Icon name="shopping-basket" size={24} color={color} />
           ),
         }}
       />
@@ -47,9 +46,9 @@ const MainBottomTap = () => {
         name="내 정보"
         component={MyPage}
         options={{
-          tabBarLabel: '홈',
+          tabBarLabel: 'MyPage',
           tabBarIcon: ({color}) => (
-            <Icon name="account-circle" size={32} color={color} />
+            <Icon name="account-circle" size={24} color={color} />
           ),
         }}
       />
