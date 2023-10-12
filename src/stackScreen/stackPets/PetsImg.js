@@ -1,36 +1,32 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 
-const PetsImg = () => {
-  const width_proportion = '32%';
+const width_proportion = '33%';
+
+const PetsImg = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          width: width_proportion,
-          height: 100,
-          borderColor: 'gray',
-          borderWidth: 1,
+      <TouchableOpacity
+        style={styles.imgs}
+        onPress={() => {
+          navigation.navigate('PetsPost');
         }}>
-        <Text>사진들</Text>
-      </View>
-      <Image
-        source={require('../../assets/강아지.jpeg')}
-        style={{
-          width: width_proportion,
-          height: 100,
-          borderColor: 'gray',
-          borderWidth: 1,
-        }}></Image>
-      <View
-        style={{
-          width: width_proportion,
-          height: 100,
-          borderColor: 'gray',
-          borderWidth: 1,
+        <Image source={require('../../assets/강아지.jpeg')} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.imgs}
+        onPress={() => {
+          navigation.navigate('PetsPost');
         }}>
-        <Text>사진들</Text>
-      </View>
+        <Image source={require('../../assets/강아지.jpeg')} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.imgs}
+        onPress={() => {
+          navigation.navigate('PetsPost');
+        }}>
+        <Image source={require('../../assets/강아지.jpeg')} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -40,6 +36,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+  },
+  imgs: {
+    borderRadius: 10,
+    width: width_proportion,
+    height: 100,
   },
 });
 
