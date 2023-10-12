@@ -1,7 +1,8 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import PostUser from './Post/PostUser';
-import PostRiew from './Post/PostRiew';
+import PostUser from './PostUser';
+import PostRiew from './PostRiew';
+import {Modal} from 'react-native-paper';
 
 const PetsPost = () => {
   return (
@@ -12,13 +13,12 @@ const PetsPost = () => {
       <View style={styles.imgSet}>
         <Image
           style={styles.img}
-          source={require('../../assets/강아지.jpeg')}
+          source={require('../../../assets/강아지.jpeg')}
         />
       </View>
       <View style={styles.review}>
         <PostRiew />
       </View>
-      <View style={styles.continue1}></View>
     </View>
   );
 };

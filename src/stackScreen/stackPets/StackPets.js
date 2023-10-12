@@ -2,7 +2,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import Pets from '../../bottomTap/bottomCompont/Pets';
 import PetsImg from './PetsImg';
-import PetsPost from './PetsPost';
+import PetsPost from './Post/PetsPost';
 
 const Stack = createStackNavigator();
 
