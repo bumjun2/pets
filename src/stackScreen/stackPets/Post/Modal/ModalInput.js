@@ -1,19 +1,18 @@
 import React, {useState} from 'react';
-import {Alert, StyleSheet, TextInput, View, Button} from 'react-native';
+import {StyleSheet, TextInput, View, Button, Alert} from 'react-native';
 
-const ModalInput = () => {
-  const [text, SetText] = useState('');
-  const textIn = () => {
-    Alert.alert(text);
-  };
+const ModalInput = ({handlerModalList, commentHandler}) => {
   return (
     <View style={{flexDirection: 'row'}}>
       <TextInput
         placeholder="🐶 댓글을 달아주세요!!"
-        onChangeText={newText => SetText(newText)}
+        onChangeText={newtext => handlerModalList(newtext)}
         style={styels.input}
       />
-      <Button title="추가" onPress={textIn} style={styels.button}></Button>
+      <Button
+        title="추가"
+        style={styels.button}
+        onPress={commentHandler}></Button>
     </View>
   );
 };

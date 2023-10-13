@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal, StyleSheet, View} from 'react-native';
+import {Alert, Modal, StyleSheet, Text, View} from 'react-native';
 
 import PetsPost from './PetsPost';
 
@@ -9,6 +9,8 @@ import ModalList from './Modal/ModalList';
 
 const Post = () => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [text, setText] = useState('');
+  const [add, setAdd] = useState(false);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -16,6 +18,23 @@ const Post = () => {
 
   const handleModalToggle = () => {
     toggleModal();
+  };
+
+  const ModalLists = newText => {
+    setText(newText);
+  };
+  const handlerModalList = newText => {
+    if (add) {
+      ModalLists(newText);
+    }
+  };
+  const commentHandler = () => {
+    comment();
+  };
+  const comment = () => {
+    setAdd(!add);
+    Alert.alert('누름');
+    setAdd(false);
   };
 
   return (
@@ -34,8 +53,11 @@ const Post = () => {
               setModalVisible={setModalVisible}
               isModalVisible={isModalVisible}
             />
-            <ModalInput />
-            <ModalList />
+            <ModalInput
+              handlerModalList={handlerModalList}
+              commentHandler={commentHandler}
+            />
+            <ModalList text={text} />
           </View>
         </View>
       </Modal>
@@ -50,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalView: {
-    backgroundColor: '#dddd',
+    backgroundColor: '#cccc',
     borderRadius: 30,
     width: 300,
     height: 500,
