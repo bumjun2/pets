@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, Button, Alert} from 'react-native';
 
-const ModalInput = ({handlerModalList, commentHandler}) => {
+const ModalInput = ({handlerModalList, commentHandler, text}) => {
   return (
     <View style={{flexDirection: 'row'}}>
       <TextInput
         placeholder="🐶 댓글을 달아주세요!!"
         onChangeText={newtext => handlerModalList(newtext)}
         style={styels.input}
+        value={text}
       />
       <Button
         title="추가"

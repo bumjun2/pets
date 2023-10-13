@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, Text, View} from 'react-native';
+import {Alert, FlatList, Modal, StyleSheet, Text, View} from 'react-native';
 
 import PetsPost from './PetsPost';
 
 import ModalTitle from './Modal/ModalTitle';
 import ModalInput from './Modal/ModalInput';
 import ModalList from './Modal/ModalList';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const Post = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
-  const [add, setAdd] = useState(false);
+  const [comments, setComments] = useState([]);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -19,22 +20,22 @@ const Post = () => {
   const handleModalToggle = () => {
     toggleModal();
   };
-
   const ModalLists = newText => {
     setText(newText);
   };
+
   const handlerModalList = newText => {
-    if (add) {
-      ModalLists(newText);
-    }
+    ModalLists(newText);
   };
   const commentHandler = () => {
     comment();
   };
   const comment = () => {
-    setAdd(!add);
-    Alert.alert('누름');
-    setAdd(false);
+    setComments(prevComments => [
+      ...prevComments,
+      {id: Math.floor(Math.random() * 1000000) + 1, text: text},
+    ]);
+    setText('');
   };
 
   return (
@@ -56,8 +57,15 @@ const Post = () => {
             <ModalInput
               handlerModalList={handlerModalList}
               commentHandler={commentHandler}
+              text={text}
             />
-            <ModalList text={text} />
+            <ScrollView>
+              <FlatList
+                data={comments}
+                keyExtractor={item => item.id.toString()}
+                renderItem={({item}) => <ModalList text={item.text} />}
+              />
+            </ScrollView>
           </View>
         </View>
       </Modal>
