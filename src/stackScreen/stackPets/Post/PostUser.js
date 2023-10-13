@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 15,
-    fontWeight: '700',
-    marginTop: 18,
+    fontWeight: 'bold',
+    color: 'black',
+    marginTop: 20,
     marginLeft: 20,
   },
 });

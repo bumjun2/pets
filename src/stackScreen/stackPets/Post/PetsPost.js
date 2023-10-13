@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import PostUser from './PostUser';
 import PostRiew from './PostRiew';
-import {Modal} from 'react-native-paper';
 
-const PetsPost = () => {
+const PetsPost = ({onModalToggle}) => {
   return (
     <View style={styles.continue}>
       <View style={styles.postUser}>
@@ -17,7 +16,7 @@ const PetsPost = () => {
         />
       </View>
       <View style={styles.review}>
-        <PostRiew />
+        <PostRiew onModalToggle={onModalToggle} />
       </View>
     </View>
   );

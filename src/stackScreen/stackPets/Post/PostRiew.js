@@ -1,21 +1,21 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Modal, Portal} from 'react-native-paper';
+import {Alert, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const PostRiew = () => {
+const PostRiew = ({onModalToggle}) => {
   const [inputIcon, setInputIcon] = useState(false);
   const [starIcon, setStarIcon] = useState(false);
-  const [isModalVisible, setModalVisible] = useState(false);
 
   const handleIconPress = () => {
     setInputIcon(!inputIcon);
   };
   const starHandler = () => {
     setStarIcon(!starIcon);
-  };
-  const modelHandler = () => {
-    setModalVisible(!isModalVisible);
+    if (starIcon) {
+      Alert.alert('저장이 취소 되었습니다.');
+    } else {
+      Alert.alert('저장되었습니다');
+    }
   };
 
   return (
@@ -31,13 +31,13 @@ const PostRiew = () => {
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={modelHandler}
+        onPress={onModalToggle}
         style={{marginTop: 10, marginLeft: 10}}>
         <Icon name="question-answer" size={40} color={'black'} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={starHandler}
-        style={{marginTop: 10, marginLeft: 250}}>
+        style={{marginTop: 10, marginLeft: 220}}>
         <Icon
           name={starIcon ? 'turned-in' : 'turned-in-not'}
           size={40}
