@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {launchImageLibrary} from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const UserPicture = () => {
+const UserPicture = ({props, changText}) => {
   const [respons, setRespons] = useState(null);
   const onAddImage = () => {
     launchImageLibrary(
@@ -32,10 +32,11 @@ const UserPicture = () => {
           />
         )}
       </TouchableOpacity>
-      <View style={{flexDirection: 'row'}}>
-        <Text style={styles.font}>귀여운 강아지</Text>
-        <Icon />
-      </View>
+      <TouchableOpacity onPress={props}>
+        <Text style={styles.font}>
+          {changText === null ? changText : '귀여운 강아지'}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

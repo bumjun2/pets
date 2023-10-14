@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, TextInput, View, Button, Alert} from 'react-native';
 
 const ModalInput = ({handlerModalList, commentHandler, text}) => {

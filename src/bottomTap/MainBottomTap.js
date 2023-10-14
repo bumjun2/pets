@@ -4,7 +4,7 @@ import Shop from './bottomCompont/Shop';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import StackHome from '../stackScreen/StackHome';
+import StackHome from '../stackScreen/stackHome/StackHome';
 import StackPets from '../stackScreen/stackPets/StackPets';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import StackMyPage from '../stackScreen/stackMyPage/StackMyPage';

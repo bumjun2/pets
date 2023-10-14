@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import {Alert, FlatList, Modal, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Modal, StyleSheet, View} from 'react-native';
 
 import PetsPost from './PetsPost';
 
 import ModalTitle from './Modal/ModalTitle';
 import ModalInput from './Modal/ModalInput';
 import ModalList from './Modal/ModalList';
-import {ScrollView} from 'react-native-gesture-handler';
 
 const Post = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -59,7 +58,6 @@ const Post = () => {
               commentHandler={commentHandler}
               text={text}
             />
-
             <FlatList
               data={comments}
               keyExtractor={item => item.id.toString()}

@@ -1,6 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
+
 import MyPage from '../../bottomTap/bottomCompont/MyPage';
+import User from './User';
 
 const Stack = createStackNavigator();
 
@@ -9,7 +11,7 @@ const StackMyPage = () => {
     <Stack.Navigator>
       <Stack.Screen
         name="MyPage"
-        component={MyPage}
+        component={User}
         options={{
           title: 'MyPage',
         }}

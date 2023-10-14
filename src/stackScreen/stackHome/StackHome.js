@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Home from '../bottomTap/bottomCompont/Home';
+import Home from '../../bottomTap/bottomCompont/Home';
 
 const Stack = createStackNavigator();
 
