@@ -33,7 +33,7 @@ const Post = () => {
   const comment = () => {
     setComments(prevComments => [
       ...prevComments,
-      {id: comments.length + 1, text: text},
+      {id: Math.floor(Math.random() * 1000) + 1, text: text},
     ]);
     setText('');
   };
@@ -59,13 +59,12 @@ const Post = () => {
               commentHandler={commentHandler}
               text={text}
             />
-            <ScrollView>
-              <FlatList
-                data={comments}
-                keyExtractor={item => item.id.toString()}
-                renderItem={({item}) => <ModalList text={item.text} />}
-              />
-            </ScrollView>
+
+            <FlatList
+              data={comments}
+              keyExtractor={item => item.id.toString()}
+              renderItem={({item}) => <ModalList text={item.text} />}
+            />
           </View>
         </View>
       </Modal>

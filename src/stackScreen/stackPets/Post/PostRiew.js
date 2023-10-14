@@ -33,7 +33,7 @@ const PostRiew = ({onModalToggle}) => {
       <TouchableOpacity
         onPress={onModalToggle}
         style={{marginTop: 10, marginLeft: 10}}>
-        <Icon name="question-answer" size={40} color={'black'} />
+        <Icon name="messenger-outline" size={40} color={'black'} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={starHandler}
