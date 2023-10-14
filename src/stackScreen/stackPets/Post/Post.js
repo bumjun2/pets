@@ -33,7 +33,7 @@ const Post = () => {
   const comment = () => {
     setComments(prevComments => [
       ...prevComments,
-      {id: Math.floor(Math.random() * 1000000) + 1, text: text},
+      {id: comments.length + 1, text: text},
     ]);
     setText('');
   };

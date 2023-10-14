@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Shop from './bottomCompont/Shop';
-import MyPage from './bottomCompont/MyPage';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+
 import StackHome from '../stackScreen/StackHome';
 import StackPets from '../stackScreen/stackPets/StackPets';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import StackMyPage from '../stackScreen/stackMyPage/StackMyPage';
 
 const Tab = createMaterialBottomTabNavigator();
 const MainBottomTap = () => {
@@ -42,7 +43,7 @@ const MainBottomTap = () => {
       />
       <Tab.Screen
         name="내 정보"
-        component={MyPage}
+        component={StackMyPage}
         options={{
           tabBarLabel: 'MyPage',
           tabBarIcon: ({color}) => (
