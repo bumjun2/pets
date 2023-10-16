@@ -12,9 +12,9 @@ import {
 import MyPage from '../../bottomTap/bottomCompont/MyPage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const User = () => {
+const User = ({navigation}) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [changeText, setChangeText] = useState('');
+  const [changeText, setChangeText] = useState('아침에 사과');
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -23,12 +23,17 @@ const User = () => {
     toggleModal();
   };
   const changeHandler = () => {
-    Alert.alert(changeText);
+    setChangeText(changeText);
+    setModalVisible(!isModalVisible);
   };
 
   return (
     <View style={{flex: 1}}>
-      <MyPage props={modalHandler} changeText={changeText} />
+      <MyPage
+        props={modalHandler}
+        changeText={changeText}
+        navigation={navigation}
+      />
       <Modal
         animationType="fade"
         transparent={true}
@@ -60,7 +65,8 @@ const User = () => {
                   width: 200,
                   marginLeft: 50,
                 }}
-                onChange={newtext => setChangeText(newtext)}
+                onChangeText={newtext => setChangeText(newtext)}
+                value={changeText}
               />
               <Pressable
                 style={{
