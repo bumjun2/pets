@@ -22,7 +22,9 @@ const UserFollow = ({navigation}) => {
         <TouchableOpacity onPress={() => navigation.navigate('Follow')}>
           <Text style={styles.font}>30</Text>
         </TouchableOpacity>
-        <Text style={styles.font}>10</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Following')}>
+          <Text style={styles.font}>10</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

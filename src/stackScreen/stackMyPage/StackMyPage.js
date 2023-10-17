@@ -1,9 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 
-import MyPage from '../../bottomTap/bottomCompont/MyPage';
 import User from './User';
-import Follow from '../stackHome/Follow/Follow';
+import Follow from './Follow/Follow';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +21,13 @@ const StackMyPage = () => {
         component={Follow}
         options={{
           title: '팔로워',
+        }}
+      />
+      <Stack.Screen
+        name="Following"
+        component={Follow}
+        options={{
+          title: '팔로잉',
         }}
       />
     </Stack.Navigator>
