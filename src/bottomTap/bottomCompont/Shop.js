@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import Advertisement from '../../stackScreen/stackShop/Advertisement';
 
 const Shop = () => {
   return (
-    <View>
-      <Text>아침에 사과</Text>
+    <View style={{flex: 1}}>
+      <Advertisement />
     </View>
   );
 };

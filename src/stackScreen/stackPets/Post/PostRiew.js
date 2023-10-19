@@ -37,7 +37,7 @@ const PostRiew = ({onModalToggle}) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={starHandler}
-        style={{marginTop: 10, marginLeft: 260}}>
+        style={{marginTop: 10, marginLeft: 240}}>
         <Icon
           name={starIcon ? 'turned-in' : 'turned-in-not'}
           size={40}
