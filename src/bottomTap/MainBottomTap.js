@@ -8,6 +8,7 @@ import StackHome from '../stackScreen/stackHome/StackHome';
 import StackPets from '../stackScreen/stackPets/StackPets';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import StackMyPage from '../stackScreen/stackMyPage/StackMyPage';
+import StackShop from '../stackScreen/stackShop/StackShop';
 
 const Tab = createMaterialBottomTabNavigator();
 const MainBottomTap = () => {
@@ -33,7 +34,7 @@ const MainBottomTap = () => {
       />
       <Tab.Screen
         name="상점"
-        component={Shop}
+        component={StackShop}
         options={{
           tabBarLabel: 'Shop',
           tabBarIcon: ({color}) => (

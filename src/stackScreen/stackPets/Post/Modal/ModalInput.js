@@ -22,6 +22,8 @@ const styels = StyleSheet.create({
   input: {
     borderRadius: 10,
     backgroundColor: '#ffff',
+    borderColor: '#ccc',
+    borderWidth: 2,
     width: 255,
   },
   button: {

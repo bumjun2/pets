@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const UserFollow = ({navigation}) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, marginTop: 40}}>
       <View
         style={{
           flex: 0.5,

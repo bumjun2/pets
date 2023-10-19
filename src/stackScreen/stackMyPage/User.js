@@ -100,7 +100,10 @@ const styles = StyleSheet.create({
   modal: {
     width: 300,
     height: 150,
-    backgroundColor: '#cccc',
+    backgroundColor: '#fff',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 10,
   },
 });
 
