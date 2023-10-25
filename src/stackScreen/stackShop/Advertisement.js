@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
+import {View, Image, StyleSheet, Text, SafeAreaView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Swiper from 'react-native-swiper';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Advertisement = () => {
   const [hover, setHover] = useState(false);
@@ -16,23 +17,33 @@ const Advertisement = () => {
   };
 
   return (
-    <TouchableOpacity onPress={handleMouse}>
-      <View style={styles.container}>
-        <Swiper
-          autoplay
-          autoplayTimeout={2.5}
-          showsButtons={hover}
-          showsPagination={hover}
-          paginationStyle={styles.paginationStyle}
-          dotStyle={styles.dotStyle}>
-          {images.map((image, index) => (
-            <View style={styles.slide} key={index}>
-              <Image source={image} style={styles.image} />
-            </View>
-          ))}
-        </Swiper>
+    <SafeAreaView>
+      <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+        <View style={{margin: 10}}>
+          <Icon name="search" size={30} color={'black'} />
+        </View>
+        <View style={{margin: 10}}>
+          <Icon name="shopping-basket" size={30} color={'black'} />
+        </View>
       </View>
-    </TouchableOpacity>
+      <TouchableOpacity onPress={handleMouse}>
+        <View style={styles.container}>
+          <Swiper
+            autoplay
+            autoplayTimeout={2.5}
+            showsButtons={hover}
+            showsPagination={hover}
+            paginationStyle={styles.paginationStyle}
+            dotStyle={styles.dotStyle}>
+            {images.map((image, index) => (
+              <View style={styles.slide} key={index}>
+                <Image source={image} style={styles.image} />
+              </View>
+            ))}
+          </Swiper>
+        </View>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 };
 

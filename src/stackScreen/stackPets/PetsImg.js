@@ -11,21 +11,21 @@ const PetsImg = ({navigation}) => {
         onPress={() => {
           navigation.navigate('PetsPost');
         }}>
-        <Image source={require('../../assets/강아지.jpeg')} />
+        <Image source={require('../../assets/알파카.jpeg')} />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.imgs}
         onPress={() => {
           navigation.navigate('PetsPost');
         }}>
-        <Image source={require('../../assets/강아지.jpeg')} />
+        <Image source={require('../../assets/알파카.jpeg')} />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.imgs}
         onPress={() => {
           navigation.navigate('PetsPost');
         }}>
-        <Image source={require('../../assets/강아지.jpeg')} />
+        <Image source={require('../../assets/알파카.jpeg')} />
       </TouchableOpacity>
     </View>
   );

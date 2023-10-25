@@ -12,7 +12,7 @@ const PetsPost = ({onModalToggle}) => {
       <View style={styles.imgSet}>
         <Image
           style={styles.img}
-          source={require('../../../assets/강아지.jpeg')}
+          source={require('../../../assets/알파카.jpeg')}
         />
       </View>
       <View style={styles.review}>

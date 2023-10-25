@@ -6,7 +6,7 @@ const PostUser = () => {
     <View style={styles.continue}>
       <Image
         style={styles.userImage}
-        source={require('../../../assets/강아지.jpeg')}
+        source={require('../../../assets/알파카.jpeg')}
       />
       <Text style={styles.userName}>귀여운 강아지</Text>
     </View>
