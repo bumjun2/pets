@@ -62,13 +62,13 @@ const Goods = ({route, navigation}, props) => {
           }}>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity onPress={CountUpHandler}>
-              <Text style={styles.countButton}>⬇️</Text>
+              <Text style={styles.countButton}>⬆️</Text>
             </TouchableOpacity>
             <Text style={styles.countText}>{Count}</Text>
             <TouchableOpacity
               onPress={() => CountDownHandler()}
               disabled={Count === 0}>
-              <Text style={styles.countButton}>⬆️</Text>
+              <Text style={styles.countButton}>⬇️</Text>
             </TouchableOpacity>
           </View>
         </View>

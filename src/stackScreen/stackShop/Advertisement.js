@@ -8,7 +8,7 @@ import Context from './context/Context';
 
 const Advertisement = ({navigation}) => {
   const [hover, setHover] = useState(false);
-  const {data} = useContext(Context);
+  const {data, setData} = useContext(Context);
 
   const images = [
     require('../../assets/강아지.jpeg'),

@@ -11,7 +11,13 @@ import Context from '../context/Context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Basket = () => {
-  const {data} = useContext(Context);
+  const {data, setData} = useContext(Context);
+
+  const RemovedHandler = index => {
+    const update = [...data];
+    update.splice(index, 1);
+    setData(update);
+  };
 
   return (
     <View style={{backgroundColor: '#fff', flex: 1}}>
@@ -47,11 +53,6 @@ const Basket = () => {
                 position: 'relative',
                 borderRadius: 10,
               }}>
-              <View style={{height: 'auto', justifyContent: 'space-around'}}>
-                <Text style={styles.font}>{item.title}</Text>
-                <Text style={styles.font}>가격: {item.upPrice}</Text>
-                <Text style={styles.font}>수량: {item.Count}</Text>
-              </View>
               <TouchableOpacity
                 style={{
                   position: 'absolute',
@@ -59,16 +60,21 @@ const Basket = () => {
                   right: 0,
                 }}
                 onPress={() => {
-                  data.splice(index);
-                  console.log(data);
+                  RemovedHandler(index);
                 }}>
-                <Icon name={'remove-shopping-cart'} size={24} color={'pink'} />
+                <Icon name={'remove-shopping-cart'} size={30} color={'pink'} />
               </TouchableOpacity>
 
               <Image
                 source={item.imageSource}
-                style={{width: 150, height: 100}}
+                style={{width: 150, height: 100, borderRadius: 10}}
               />
+
+              <View style={{height: 'auto', justifyContent: 'space-around'}}>
+                <Text style={styles.font}>{item.title}</Text>
+                <Text style={styles.font}>가격: {item.upPrice}</Text>
+                <Text style={styles.font}>수량: {item.Count}</Text>
+              </View>
             </View>
           )}
         />
