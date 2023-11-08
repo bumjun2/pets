@@ -36,7 +36,7 @@ const data = [
   },
 ];
 
-const SnackList = () => {
+const SnackList = ({navigation}) => {
   const [sortedData, setSortedData] = useState(data);
 
   const handleSort = option => {
@@ -61,6 +61,7 @@ const SnackList = () => {
             imageSource={item.imageSource}
             title={item.title}
             price={item.price}
+            navigation={navigation}
           />
         )}
         numColumns={2}

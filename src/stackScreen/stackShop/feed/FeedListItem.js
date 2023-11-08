@@ -1,13 +1,22 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const FeedListItem = ({imageSource, title, price}) => {
+const FeedListItem = ({imageSource, title, price, navigation}) => {
+  const dataHandler = () => {
+    navigation.navigate('Goods', {
+      imageSource,
+      title,
+      price,
+    });
+  };
   return (
-    <View style={styles.listItem}>
-      <Image source={imageSource} style={styles.image} />
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.price}>{price}원</Text>
-    </View>
+    <TouchableOpacity style={styles.listItem} onPress={dataHandler}>
+      <View>
+        <Image source={imageSource} style={styles.image} />
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.price}>{price}원</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
@@ -18,6 +27,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
+    margin: 10,
     width: 'auto',
     height: 200,
     borderRadius: 20,

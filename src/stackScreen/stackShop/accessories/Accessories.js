@@ -2,10 +2,10 @@ import React from 'react';
 import {View} from 'react-native';
 import AccessoriesList from './AccessoriesList';
 
-const Accessories = () => {
+const Accessories = ({navigation}) => {
   return (
     <View>
-      <AccessoriesList />
+      <AccessoriesList navigation={navigation} />
     </View>
   );
 };

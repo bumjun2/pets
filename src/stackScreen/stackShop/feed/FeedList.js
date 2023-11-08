@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import FeedListItem from './FeedListItem';
 import {FlatList} from 'react-native-gesture-handler';
 import Order from './Order';
@@ -37,7 +37,7 @@ const data = [
   },
 ];
 
-const FeedList = () => {
+const FeedList = ({navigation, click}) => {
   const [sortedData, setSortedData] = useState(data);
 
   const handleSort = option => {
@@ -52,9 +52,11 @@ const FeedList = () => {
     } else if (option === '판매량순') {
     }
   };
+
   return (
     <View style={styles.container}>
       <Order onSort={handleSort} />
+
       <FlatList
         data={sortedData}
         renderItem={({item}) => (
@@ -62,6 +64,8 @@ const FeedList = () => {
             imageSource={item.imageSource}
             title={item.title}
             price={item.price}
+            click={click}
+            navigation={navigation}
           />
         )}
         numColumns={2}

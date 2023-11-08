@@ -5,6 +5,8 @@ import Feed from './feed/Feed';
 import Snack from './snack/Snack';
 import Accessories from './accessories/Accessories';
 import Shower from './shower/Shower';
+import Goods from './feed/Goods';
+import Basket from './basket/Basket';
 
 const Stack = createStackNavigator();
 
@@ -45,6 +47,20 @@ const StackShop = () => {
         component={Shower}
         options={{
           title: 'Shower',
+        }}
+      />
+      <Stack.Screen
+        name="Goods"
+        component={Goods}
+        options={{
+          title: 'Goods',
+        }}
+      />
+      <Stack.Screen
+        name="Basket"
+        component={Basket}
+        options={{
+          title: 'Basket',
         }}
       />
     </Stack.Navigator>

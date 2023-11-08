@@ -1,11 +1,15 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Image, StyleSheet, Text, SafeAreaView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Badge} from 'react-native-paper';
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Context from './context/Context';
 
-const Advertisement = () => {
+const Advertisement = ({navigation}) => {
   const [hover, setHover] = useState(false);
+  const {data} = useContext(Context);
+
   const images = [
     require('../../assets/강아지.jpeg'),
     require('../../assets/고양이.jpeg'),
@@ -19,22 +23,29 @@ const Advertisement = () => {
   return (
     <SafeAreaView>
       <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-        <View style={{margin: 10}}>
+        <TouchableOpacity style={{margin: 10}}>
           <Icon name="search" size={30} color={'black'} />
-        </View>
-        <View style={{margin: 10}}>
-          <Icon name="shopping-basket" size={30} color={'black'} />
+        </TouchableOpacity>
+        <View style={{margin: 10, position: 'relative'}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Basket')}>
+            <Icon name="shopping-basket" size={30} color={'black'} />
+            {data.length === 0 ? null : (
+              <Badge
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  bottom: 0,
+                  backgroundColor: 'pink',
+                }}>
+                {data.length}
+              </Badge>
+            )}
+          </TouchableOpacity>
         </View>
       </View>
       <TouchableOpacity onPress={handleMouse}>
         <View style={styles.container}>
-          <Swiper
-            autoplay
-            autoplayTimeout={2.5}
-            showsButtons={hover}
-            showsPagination={hover}
-            paginationStyle={styles.paginationStyle}
-            dotStyle={styles.dotStyle}>
+          <Swiper autoplay autoplayTimeout={2.5}>
             {images.map((image, index) => (
               <View style={styles.slide} key={index}>
                 <Image source={image} style={styles.image} />
@@ -56,26 +67,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 10,
   },
   image: {
     width: '100%',
     height: '100%',
     borderRadius: 10,
-  },
-  paginationStyle: {
-    position: 'absolute',
-    bottom: 10,
-  },
-  dotStyle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: '#fff',
-    marginRight: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

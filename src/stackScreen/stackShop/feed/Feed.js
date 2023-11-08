@@ -1,11 +1,11 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import FeedList from './FeedList';
 
-const Feed = () => {
+const Feed = ({navigation}) => {
   return (
     <View>
-      <FeedList />
+      <FeedList navigation={navigation} />
     </View>
   );
 };

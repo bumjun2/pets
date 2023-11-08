@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -18,7 +18,7 @@ const Category = ({navigation}) => {
         }}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Feed');
+            navigation.navigate('Feed', {});
           }}>
           <View style={styles.category}>
             <Text style={{fontSize: 40}}>🍚</Text>
