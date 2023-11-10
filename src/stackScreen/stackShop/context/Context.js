@@ -7,6 +7,7 @@ const {Provider, Consumer} = Context;
 
 function ContextProvider({children}) {
   const [data, setData] = useState([]);
+  const [login, setLogin] = useState(false);
 
   return <Provider value={{data, setData}}>{children}</Provider>;
 }

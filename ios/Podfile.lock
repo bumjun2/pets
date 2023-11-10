@@ -383,6 +383,8 @@ PODS:
     - React-Core
   - react-native-splash-screen (3.3.0):
     - React-Core
+  - react-native-sqlite-storage (5.0.0):
+    - React
   - React-NativeModulesApple (0.72.5):
     - hermes-engine
     - React-callinvoker
@@ -493,6 +495,8 @@ PODS:
     - React-jsi (= 0.72.5)
     - React-logger (= 0.72.5)
     - React-perflogger (= 0.72.5)
+  - RealmJS (12.3.0):
+    - React
   - RNCMaskedView (0.1.11):
     - React
   - RNGestureHandler (2.13.1):
@@ -588,6 +592,7 @@ DEPENDENCIES:
   - "react-native-menu (from `../node_modules/@react-native-menu/menu`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
+  - react-native-sqlite-storage (from `../node_modules/react-native-sqlite-storage`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -605,6 +610,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RealmJS (from `../node_modules/realm`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -682,6 +688,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
+  react-native-sqlite-storage:
+    :path: "../node_modules/react-native-sqlite-storage"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -716,6 +724,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RealmJS:
+    :path: "../node_modules/realm"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
   RNGestureHandler:
@@ -769,6 +779,7 @@ SPEC CHECKSUMS:
   react-native-menu: 9728f90160c36b9a75481fc76e05354b99d54c59
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
+  react-native-sqlite-storage: 418ef4afc5e6df6ce3574c4617e5f0b65cffde55
   React-NativeModulesApple: 797bc6078d566eef3fb3f74127e6e1d2e945a15f
   React-perflogger: cd8886513f68e1c135a1e79d20575c6489641597
   React-RCTActionSheet: 726d2615ca62a77ce3e2c13d87f65379cdc73498
@@ -786,6 +797,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: cc32add98c45c5df18436a6a52a7e1f6edec102c
   React-utils: 7a9918a1ffdd39aba67835d42386f592ea3f8e76
   ReactCommon: 91ece8350ebb3dd2be9cef662abd78b6948233c0
+  RealmJS: 4c52a15602e70b64cd9230b0a17a9c12741371f4
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNGestureHandler: 38aa38413896620338948fbb5c90579a7b1c3fde
   RNReanimated: ab2e96c6d5591c3dfbb38a464f54c8d17fb34a87
@@ -796,6 +808,6 @@ SPEC CHECKSUMS:
   Yoga: 86fed2e4d425ee4c6eab3813ba1791101ee153c6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: b8b030b7bce7d37d6aac59b65ac22532491c35c0
+PODFILE CHECKSUM: 8c390a5c56ab595e9bc8921c068aa9f52144dd3a
 
 COCOAPODS: 1.13.0

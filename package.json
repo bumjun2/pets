@@ -21,6 +21,7 @@
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "@react-navigation/stack": "^6.3.18",
+    "@realm/react": "^0.6.1",
     "bootstrap": "^5.3.2",
     "deprecated-react-native-prop-types": "^5.0.0",
     "react": "18.2.0",
@@ -36,9 +37,11 @@
     "react-native-screens": "^3.25.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-splash-screen": "^3.3.0",
+    "react-native-sqlite-storage": "^5.0.0",
     "react-native-svg": "^13.14.0",
     "react-native-swiper": "^1.6.0",
-    "react-native-vector-icons": "^10.0.0"
+    "react-native-vector-icons": "^10.0.0",
+    "realm": "^12.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

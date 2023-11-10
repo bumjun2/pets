@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {View, Image, StyleSheet, Text, SafeAreaView} from 'react-native';
+import {View, Image, StyleSheet, SafeAreaView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Badge} from 'react-native-paper';
 import Swiper from 'react-native-swiper';
@@ -8,6 +8,7 @@ import Context from './context/Context';
 
 const Advertisement = ({navigation}) => {
   const [hover, setHover] = useState(false);
+  const [search, setSearch] = useState(false);
   const {data, setData} = useContext(Context);
 
   const images = [
@@ -20,10 +21,14 @@ const Advertisement = ({navigation}) => {
     setHover(!hover);
   };
 
+  const searchHandler = () => {
+    setSearch(!search);
+  };
+
   return (
     <SafeAreaView>
       <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-        <TouchableOpacity style={{margin: 10}}>
+        <TouchableOpacity style={{margin: 10}} onPress={searchHandler}>
           <Icon name="search" size={30} color={'black'} />
         </TouchableOpacity>
         <View style={{margin: 10, position: 'relative'}}>
