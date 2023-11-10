@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
-import {View, TextInput, Button, StyleSheet} from 'react-native';
-import db from '../../realm/SQLiteConfig';
+import React, {useContext, useState} from 'react';
+import {View, TextInput, Button, StyleSheet, Alert} from 'react-native';
+import Context from '../stackShop/context/Context';
+import realm from '../../realm/Realm';
 
-const LoginScreen = ({navigation}) => {
-  const [username, setUsername] = useState('');
+const LoginScreen = ({navigation, setLogin}) => {
+  const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const {on, setOn} = useContext(Context);
 
   const handleLogin = () => {
-    db.transaction(tx => {
-      tx.executeSql(
-        'SELECT * FROM users WHERE username = ? AND password = ?',
-        [username, password],
-        (tx, results) => {
-          if (results.rows.length > 0) {
-            console.log('Login successful!');
-          } else {
-            console.log('Login failed. Invalid username or password.');
-          }
-        },
-      );
+    realm.write(() => {
+      const user = realm
+        .objects('User')
+        .filtered('id = $0 AND password = $1', userId, password)[0];
+      if (user) {
+        setLogin(true);
+        setOn(user);
+      } else {
+        Alert.alert('회원 정보가 일치하지 않습니다');
+      }
     });
   };
 
@@ -27,8 +27,8 @@ const LoginScreen = ({navigation}) => {
       <TextInput
         style={styles.input}
         placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
+        value={userId}
+        onChangeText={setUserId}
       />
       <TextInput
         style={styles.input}
@@ -37,7 +37,19 @@ const LoginScreen = ({navigation}) => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Login" onPress={handleLogin} />
+      <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <View style={{width: '43%'}}>
+          <Button title="로그인" onPress={handleLogin} />
+        </View>
+        <View style={{width: '43%'}}>
+          <Button
+            title="회원가입하기"
+            onPress={() => {
+              navigation.navigate('Sinup');
+            }}
+          />
+        </View>
+      </View>
     </View>
   );
 };

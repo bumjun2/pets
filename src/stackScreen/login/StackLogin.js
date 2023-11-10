@@ -3,12 +3,13 @@ import React from 'react';
 
 import LoginScreen from './Login';
 import Sinup from './Sinup';
+import NickName from './NickName';
 
 const Stack = createStackNavigator();
 
-const StackLogin = () => {
+const StackLogin = ({setLogin}) => {
   return (
-    <Stack.Navigator initialRouteName="Sinup">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
         name="Sinup"
         component={Sinup}
@@ -19,9 +20,18 @@ const StackLogin = () => {
       />
       <Stack.Screen
         name="Login"
-        component={LoginScreen}
         options={{
           title: 'Login',
+          headerShown: false,
+        }}>
+        {props => <LoginScreen {...props} setLogin={setLogin} />}
+      </Stack.Screen>
+
+      <Stack.Screen
+        name="NickName"
+        component={NickName}
+        options={{
+          name: 'NickName',
           headerShown: false,
         }}
       />

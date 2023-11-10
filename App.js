@@ -7,6 +7,7 @@ import SplashScreen from 'react-native-splash-screen';
 import Context, {
   ContextProvider,
 } from './src/stackScreen/stackShop/context/Context';
+
 import StackLogin from './src/stackScreen/login/StackLogin';
 
 const App = () => {
@@ -14,11 +15,12 @@ const App = () => {
     SplashScreen.hide();
   }, []);
 
+  const [islogin, setLogin] = useState(false);
+
   return (
     <ContextProvider>
       <NavigationContainer>
-        <StackLogin />
-        {/* <MainBottomTap /> */}
+        {islogin ? <MainBottomTap /> : <StackLogin setLogin={setLogin} />}
       </NavigationContainer>
     </ContextProvider>
   );

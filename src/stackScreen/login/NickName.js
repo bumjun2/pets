@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Platform, Image} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Platform,
+  Image,
+  TextInput,
+  Button,
+} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {launchImageLibrary} from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import realm from '../../realm/Realm';
 
-const UserPicture = ({props, changeText}) => {
+const NickName = ({navigation, route}) => {
   const [respons, setRespons] = useState(null);
+  const userID = route.params;
+  const [changText, setChangText] = useState('');
+
   const onAddImage = () => {
     launchImageLibrary(
       {
@@ -20,9 +32,29 @@ const UserPicture = ({props, changeText}) => {
       },
     );
   };
-  console.log(respons);
+
+  const Sinup = () => {
+    realm.write(() => {
+      const username = realm.objects('User').filtered('id = $0', userID)[0];
+      if (username) {
+        username.nickName = changText;
+      }
+
+      navigation.navigate('Login');
+    });
+  };
+
   return (
     <View style={styles.continue}>
+      <Text
+        style={{
+          margin: 20,
+          backgroundColor: 'pink',
+          fontWeight: '700',
+          color: 'black',
+        }}>
+        강아지 사진을 넣으세요
+      </Text>
       <TouchableOpacity onPress={onAddImage}>
         {respons === null ? (
           <Icon name="person" size={100} color={'black'} />
@@ -33,9 +65,16 @@ const UserPicture = ({props, changeText}) => {
           />
         )}
       </TouchableOpacity>
-      <TouchableOpacity onPress={props}>
-        <Text style={styles.font}>{changeText}</Text>
-      </TouchableOpacity>
+
+      <TextInput
+        style={{width: '50%'}}
+        placeholder="강아지 이름 기록해주세요"
+        textAlign="center"
+        onChangeText={setChangText}
+      />
+      <View style={{width: '40%'}}>
+        <Button title="가입완료" onPress={Sinup}></Button>
+      </View>
     </View>
   );
 };
@@ -60,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserPicture;
+export default NickName;
