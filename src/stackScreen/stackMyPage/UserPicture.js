@@ -1,11 +1,24 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, Platform, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import React, {useContext, useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Platform,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Context from '../stackShop/context/Context';
 
-const UserPicture = ({props, changeText}) => {
-  const [respons, setRespons] = useState(null);
+const UserPicture = ({changeText}) => {
+  const {on, setOn} = useContext(Context);
+  const base64Image = on.userImg;
+  const decodedImage = base64Image
+    ? `data:image/png;base64,${base64Image}`
+    : null;
+  const [respons, setRespons] = useState(decodedImage);
+
   const onAddImage = () => {
     launchImageLibrary(
       {
@@ -20,20 +33,17 @@ const UserPicture = ({props, changeText}) => {
       },
     );
   };
-  console.log(respons);
+
   return (
     <View style={styles.continue}>
       <TouchableOpacity onPress={onAddImage}>
         {respons === null ? (
           <Icon name="person" size={100} color={'black'} />
         ) : (
-          <Image
-            style={styles.circle}
-            source={{uri: respons?.assets[0]?.uri}}
-          />
+          <Image style={styles.circle} source={{uri: respons}} />
         )}
       </TouchableOpacity>
-      <TouchableOpacity onPress={props}>
+      <TouchableOpacity onPress={changeText}>
         <Text style={styles.font}>{changeText}</Text>
       </TouchableOpacity>
     </View>

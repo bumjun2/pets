@@ -39,6 +39,10 @@ const NickName = ({navigation, route}) => {
       if (username) {
         username.nickName = changText;
       }
+      const base64Image = '...';
+      if (base64Image) {
+        username.userImg = base64Image;
+      }
 
       navigation.navigate('Login');
     });

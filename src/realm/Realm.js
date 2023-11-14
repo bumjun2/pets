@@ -13,15 +13,18 @@ User.schema = {
   },
 };
 
-const realm = new Realm({schema: [User], schemaVersion: 3});
-
+const realm = new Realm({
+  schema: [User],
+  schemaVersion: 3,
+});
+// realm.close();
 const users = realm.objects('User');
 console.log(users);
 
 // 데이터 삭제 트랜잭션
-realm.write(() => {
-  realm.deleteAll();
-  console.log(users);
-});
+// realm.write(() => {
+//   realm.deleteAll();
+//   console.log(users);
+// });
 
 export default realm;

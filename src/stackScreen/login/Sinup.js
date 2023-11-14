@@ -7,25 +7,33 @@ const SignupScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [address, setAdrass] = useState('');
   const [username, setUsername] = useState('');
+  const [loginError, setLoginError] = useState(false);
 
   const handleSignup = () => {
-    realm.write(() => {
-      realm.create('User', {
-        id: userId,
-        password: password,
-        address: address,
-        username: username,
-        userImg: '',
-        nickName: '',
+    const existingUser = realm.objects('User').filtered('id = $0', userId);
+
+    if (existingUser.length > 0) {
+      Alert.alert('같은 아이디가 이미 존재합니다.', '아이디를 수정해 주세요');
+      setLoginError(true);
+    } else {
+      realm.write(() => {
+        realm.create('User', {
+          id: userId,
+          password: password,
+          address: address,
+          username: username,
+          userImg: '',
+          nickName: '',
+        });
+        navigation.navigate('NickName', userId);
       });
-    });
-    navigation.navigate('NickName', userId);
+    }
   };
 
   return (
     <View style={styles.container}>
       <TextInput
-        style={styles.input}
+        style={loginError ? styles.redInput : styles.input}
         placeholder="id"
         value={userId}
         onChangeText={setUserId}
@@ -77,6 +85,13 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 16,
+    paddingLeft: 8,
+  },
+  redInput: {
+    height: 40,
+    borderColor: 'red',
     borderWidth: 1,
     marginBottom: 16,
     paddingLeft: 8,
