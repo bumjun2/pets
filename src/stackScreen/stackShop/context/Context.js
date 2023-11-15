@@ -8,8 +8,13 @@ const {Provider, Consumer} = Context;
 function ContextProvider({children}) {
   const [data, setData] = useState([]);
   const [on, setOn] = useState([]);
+  const [off, setOff] = useState([]);
 
-  return <Provider value={{data, setData, on, setOn}}>{children}</Provider>;
+  return (
+    <Provider value={{data, setData, on, setOn, off, setOff}}>
+      {children}
+    </Provider>
+  );
 }
 export default Context;
 export {ContextProvider, Consumer as ContextConsumer};

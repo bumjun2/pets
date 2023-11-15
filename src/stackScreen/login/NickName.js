@@ -29,6 +29,12 @@ const NickName = ({navigation, route}) => {
       res => {
         if (res.didCancel) return;
         setRespons(res);
+        realm.write(() => {
+          const user = realm.objects('User').filtered('id = $0', userID)[0];
+          if (user) {
+            user.userImg = res.assets[0].uri;
+          }
+        });
       },
     );
   };
@@ -38,10 +44,6 @@ const NickName = ({navigation, route}) => {
       const username = realm.objects('User').filtered('id = $0', userID)[0];
       if (username) {
         username.nickName = changText;
-      }
-      const base64Image = '...';
-      if (base64Image) {
-        username.userImg = base64Image;
       }
 
       navigation.navigate('Login');

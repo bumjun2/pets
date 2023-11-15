@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -10,14 +10,11 @@ import {
 import {launchImageLibrary} from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Context from '../stackShop/context/Context';
+import realm from '../../realm/Realm';
 
 const UserPicture = ({changeText}) => {
-  const {on, setOn} = useContext(Context);
-  const base64Image = on.userImg;
-  const decodedImage = base64Image
-    ? `data:image/png;base64,${base64Image}`
-    : null;
-  const [respons, setRespons] = useState(decodedImage);
+  const {on} = useContext(Context);
+  const [img, setImg] = useState(on.userImg);
 
   const onAddImage = () => {
     launchImageLibrary(
@@ -29,7 +26,12 @@ const UserPicture = ({changeText}) => {
       },
       res => {
         if (res.didCancel) return;
-        setRespons(res);
+        realm.write(() => {
+          const user = realm.objects('User').filtered('id = $0', on.id)[0];
+          if (user) {
+            setImg((user.userImg = res.assets[0].uri));
+          }
+        });
       },
     );
   };
@@ -37,10 +39,10 @@ const UserPicture = ({changeText}) => {
   return (
     <View style={styles.continue}>
       <TouchableOpacity onPress={onAddImage}>
-        {respons === null ? (
+        {on.userImg === '' ? (
           <Icon name="person" size={100} color={'black'} />
         ) : (
-          <Image style={styles.circle} source={{uri: respons}} />
+          <Image style={styles.circle} source={{uri: img}} />
         )}
       </TouchableOpacity>
       <TouchableOpacity onPress={changeText}>

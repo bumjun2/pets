@@ -6,7 +6,8 @@ import realm from '../../realm/Realm';
 const LoginScreen = ({navigation, setLogin}) => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-  const {on, setOn} = useContext(Context);
+  const {setOn} = useContext(Context);
+  const {setOff} = useContext(Context);
 
   const handleLogin = () => {
     realm.write(() => {
@@ -19,6 +20,8 @@ const LoginScreen = ({navigation, setLogin}) => {
       } else {
         Alert.alert('회원 정보가 일치하지 않습니다');
       }
+      const notUser = realm.objects('User').filtered('id != $0', userId);
+      setOff(notUser);
     });
   };
 

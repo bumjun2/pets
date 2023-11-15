@@ -12,9 +12,6 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		276073DC2B023D45002C0A17 /* WWW in Resources */ = {isa = PBXBuildFile; fileRef = 276073DB2B023D45002C0A17 /* WWW */; };
-		27937D432AFDF5D70091BFD7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27937D412AFDF5D70091BFD7 /* libsqlite3.0.tbd */; };
-		27937D442AFDF5D70091BFD7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27937D422AFDF5D70091BFD7 /* libsqlite3.tbd */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B8928BA0586E18E513FFAAD8 /* libPods-AwesomeProject-AwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29257B78661CB8FBE50CD1BD /* libPods-AwesomeProject-AwesomeProjectTests.a */; };
 /* End PBXBuildFile section */
@@ -70,7 +67,6 @@
 		274D65272AD5A4A80030DA8E /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		274D65282AD5A4A80030DA8E /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		274D65292AD5A4A80030DA8E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		276073DB2B023D45002C0A17 /* WWW */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WWW; sourceTree = "<group>"; };
 		27937D412AFDF5D70091BFD7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		27937D422AFDF5D70091BFD7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		29257B78661CB8FBE50CD1BD /* libPods-AwesomeProject-AwesomeProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AwesomeProject-AwesomeProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27937D432AFDF5D70091BFD7 /* libsqlite3.0.tbd in Frameworks */,
-				27937D442AFDF5D70091BFD7 /* libsqlite3.tbd in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-AwesomeProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +119,6 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
-				276073DB2B023D45002C0A17 /* WWW */,
 				274D65162AD5A3CD0030DA8E /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -312,7 +305,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276073DC2B023D45002C0A17 /* WWW in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -687,6 +679,7 @@
 					"-ld_classic",
 					"-Wl",
 					"-ld_classic",
+					"-Wl -ld_classic ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -769,6 +762,7 @@
 					"-ld_classic",
 					"-Wl",
 					"-ld_classic",
+					"-Wl -ld_classic ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;

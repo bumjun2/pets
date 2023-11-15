@@ -1,4 +1,4 @@
-import Realm from 'realm';
+import Realm, {schemaVersion} from 'realm';
 
 class User extends Realm.Object {}
 User.schema = {
@@ -8,18 +8,23 @@ User.schema = {
     password: 'string',
     address: 'string',
     username: 'string',
-    userImg: 'string',
     nickName: 'string',
+    userImg: 'string',
   },
+  primaryKey: 'id',
 };
 
 const realm = new Realm({
   schema: [User],
-  schemaVersion: 3,
+  path: 'myrealm.realm',
+  schemaVersion: 1,
 });
+
 // realm.close();
 const users = realm.objects('User');
 console.log(users);
+
+console.log(realm.schemaVersion);
 
 // 데이터 삭제 트랜잭션
 // realm.write(() => {

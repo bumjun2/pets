@@ -3,6 +3,7 @@ import React from 'react';
 import Pets from '../../bottomTap/bottomCompont/Pets';
 import PetsPost from './Post/PetsPost';
 import Post from './Post/Post';
+import SearchUser from './SearchUser';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,15 @@ const StackPets = () => {
         component={Post}
         options={{
           title: 'Post',
+        }}
+      />
+
+      <Stack.Screen
+        name="SearchUser"
+        component={SearchUser}
+        options={{
+          title: false,
+          headerShown: true,
         }}
       />
     </Stack.Navigator>
